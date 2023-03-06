@@ -1,6 +1,28 @@
-
+import console;
 //读写文件
-// 写文件
 string.save("/test.txt", "保存在文件的字符串");
-
 var str = string.load("/test.txt");
+
+//表(table):唯一的符合数据类型，几乎所有的符合对象都是表，即使是变量的命名空间也是表；表的本质是一个集合，可以用于容纳其他的数据成员；几乎可以容纳一切其他对象
+table = {
+	a = 123;
+	str = "字符串";
+	[123] = "不符合变量命名规则的键应放在下标内。";
+ 	["键 名"] = "不符合变量命名规则的键应放在下标内。";
+ 	键名 = {
+     	test = "表也可以包含表";
+ 	} 
+}
+
+
+
+var array = {123;456};
+console.log("数组长度",#array);
+
+var str  = "abcd";
+console.log("字符串长度",#str);
+
+var n  = null;
+console.log("null 值长度为 0",#n);
+
+console.pause();
