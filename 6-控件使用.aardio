@@ -1,0 +1,38 @@
+import win.ui;
+/*DSG{{*/
+var winform = win.form(text="aardio form";right=759;bottom=469)
+winform.add(
+plus={cls="plus";left=93;top=57;right=535;bottom=72;bgcolor=-2512093;border={radius=-1};color=23807;font=LOGFONT(h=-16);foreRight=15;forecolor=-14911489;paddingBottom=5;paddingTop=5;z=1};
+plus2={cls="plus";left=267;top=124;right=268;bottom=125;notify=1;z=2}
+)
+/*}}*/
+
+winform.plus.setTrackbarRange(1,100);
+winform.plus.skin({
+	background={
+		default=0xFF23ABD9
+	};
+	foreground={
+		default=0xFFFF771C;
+		hover=0xFFFF6600
+	};
+	color={
+		default=0xFFFF5C00;
+		hover=0xFFFF6600
+	}
+})
+
+winform.plus2.skin(
+	background = { 
+		hover = "/res/images/btn-hover.png";
+		focus = "/res/images/btn-focus.jpg";
+		active = "/res/images/btn-active.png";
+		disabled = "/res/images/btn-disabled.png"; 
+	}
+)
+winform.plus2.oncommand = function(id,event){
+	
+}
+
+winform.show();
+win.loopMessage();
