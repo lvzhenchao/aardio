@@ -1,0 +1,37 @@
+import console;
+//定义类
+class cls{
+	ctor(name,... /*输入构造函数所需要的参数*/ ){
+		this.name = name;
+		this.args = {...};
+	};
+	
+	//属性
+	value = staticNum;
+	
+	/*对象的所有成员必须用分号分隔*/
+	
+	//成员函数
+	add = function(v){
+		this.value = this.value + v;
+		return this.value; 	
+	}
+	
+}
+
+//打开类的名字空间
+namespace cls{
+    staticVar = "类的静态变量值";
+    staticNum = 2;	
+}
+
+//调用类创建对象
+var obj = cls();
+
+//调用对象函数
+var v = obj.add(5);
+
+console.log(v);
+
+console.pause(true);
+
