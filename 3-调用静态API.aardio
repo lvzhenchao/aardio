@@ -1,0 +1,18 @@
+//加载DLL
+var dll = raw.loadDll("user32.dll");
+//调用API函数
+dll.MessageBox(0, "测试", "标题", 0);
+//以上代码可以简化为：
+::User32.MessageBox(0, "测试1", "标题1", 0);
+
+//静态结构体
+var info = {
+	INT size = 8;
+	INt time;
+}
+::User32.GetLastInputInfo( info )
+
+var ok,info = ::User32.GetLastInputInfo( {
+    INT size = 8;
+    INT time;
+} );

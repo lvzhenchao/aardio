@@ -1,0 +1,20 @@
+
+import win.ui;
+/*DSG{{*/
+var winform = win.form(text="aardio form")
+winform.add(
+button={cls="button";text="测试";left=435;top=395;right=680;bottom=450;color=14120960;font=LOGFONT(h=-14);note="点这里";z=2};
+edit={cls="edit";left=18;top=16;right=741;bottom=361;edge=1;multiline=1;z=1}
+)
+/*}}*/
+
+//按钮回调事件
+winform.button.oncommand = function(){
+    winform.edit.text = "测试按钮回调事件"; //修改控件属性
+}
+
+//显示窗口
+winform.show();
+
+//启动界面消息循环，保持窗口显示，并响应用户操作
+win.loopMessage();

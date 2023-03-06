@@ -1,0 +1,6 @@
+
+//读写文件
+// 写文件
+string.save("/test.txt", "保存在文件的字符串");
+
+var str = string.load("/test.txt");

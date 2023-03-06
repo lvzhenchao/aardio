@@ -1,0 +1,19 @@
+
+//导入库
+import console; 
+
+//加载动画
+console.showLoading("加载动画测试");
+sleep(1000); //暂停 1 秒
+
+//输出字符串
+console.log('测试字符串');
+
+//输出变量
+console.dump({a=123;b=456});
+
+//以 JSON 格式输出变量
+console.dumpJson({a=123;b=456});
+
+//暂停并等待按键
+console.pause(true);
