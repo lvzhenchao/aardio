@@ -1,0 +1,18 @@
+import console; 
+
+//不需要声明，直接调用原生api函数，语法简洁可读性好
+//1、直接调用API函数
+var result = ::User32.PtInRect( ::RECT(2,3,300,500) , 12, 66 );
+console.log(result);
+
+//2、将任何网络API甚至是任意普通网址声明为aardio对象
+import web.rest.jsonLiteClient;
+var http = web.rest.jsonLiteClient();
+//导入远程 API
+var countApi = http.api("https://api.countapi.xyz/hit{/domain}{/key}")
+//服务器 API 已经变成了 aardio 函数对象
+console.log(countApi);
+var data = countApi["key"].get(); 
+console.log(data);
+
+console.pause(true);
