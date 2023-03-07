@@ -15,4 +15,13 @@ console.log(countApi);
 var data = countApi["key"].get(); 
 console.log(data);
 
+
+//3、
+
+
+
+
+
+
+
 console.pause(true);
