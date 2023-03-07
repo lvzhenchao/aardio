@@ -3,7 +3,7 @@ import win.ui;
 /*DSG{{*/
 var winform = win.form(text="aardio form";right=759;bottom=469)
 winform.add(
-plus={cls="plus";text='\uF01D';left=46;top=50;right=243;bottom=174;font=LOGFONT(h=-18;name='FontAwesome');z=1}
+plus={cls="plus";text='\uF06C';left=46;top=50;right=243;bottom=174;font=LOGFONT(h=-18;name='FontAwesome');z=1}
 )
 /*}}*/
 
