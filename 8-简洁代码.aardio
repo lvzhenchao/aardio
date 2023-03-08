@@ -16,9 +16,32 @@ var data = countApi["key"].get();
 console.log(data);
 
 
-//3、
+//3、编译C语言生成DLL执行文件，再调用DLL中的C函数
+import tcc;
+//编译 DLL
+tcc.build( "/start.dll" ).code = /***
+#include <windows.h> 
+__declspec(dllexport) int Add( int a,int b ) 
+{     
+  return a + b;
+} 
+***/
 
+//加载 DLL
+var dll = raw.loadDll( "/start.dll",,"cdecl" );
+//调用 C函数
+var result_c = dll.Add(12,3);
+console.log(result_c);
 
+//4、屏幕找字
+import mouse;
+import string.ocrLite;
+import string.ocrLite.defaultModels;
+
+var ocr = string.ocrLite();
+var ocrResult = ocr.detectScreen();
+var x,y = ocrResult.findPoint("要查找的按钮文本",0.1);
+mouse.moveTo(x,y,true);
 
 
 
