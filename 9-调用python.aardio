@@ -1,0 +1,18 @@
+import console;
+import py3;
+
+//调用python模块
+var itertools = py3.import("itertools");
+
+//调用 Python 函数，支持纯 aardio 类型参数
+var permutations = itertools.permutations({"a","b","c"});
+
+//调用 Python 内置函数 list
+var pyList = py3.list(permutations);
+
+//遍历 Python 对象成员
+for( item in pyList.each() ){
+  console.log(item); //像 aardio 对象一样使用 Python 对象
+}
+
+console.pause();
