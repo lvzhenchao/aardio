@@ -1,0 +1,48 @@
+import win.ui;
+/*DSG{{*/
+var winform = win.form(text="aardio form";right=759;bottom=469)
+winform.add(
+edit={cls="edit";text="";left=40;top=42;right=721;bottom=420;edge=1;hscroll=1;multiline=1;vscroll=1;z=1}
+)
+/*}}*/
+
+//就创建了一个表 ( table )
+var tab = {    
+    aar="阿勒河";
+    aaron="亚伦(摩西之兄)";
+    aardvark="食蚁兽";
+    aardwolf="土狼";
+    aarhus="奥尔胡斯，丹麦第二大城市";
+    aaronic="亚伦的";
+    aardman="阿德曼动画公司，世界顶尖的定格动画制作者";
+    aardenburg="亚丁堡，中世纪亚丁堡成为欧洲人朝圣的地方";
+    aardonyx="地球之爪，食草类恐龙，生活在侏罗纪早期，距今将近1.95亿年，成年地球之爪体重半吨，体长可能达到15米";
+    aargau="阿尔高州,位于阿勒河的下游,瑞士最大的工业州";
+    aarau="阿劳,阿尔高州首府";
+    aarti="《生活大爆炸》女演员 Aarti Mann";
+    aaru="雅卢，芦苇之地，古埃及神话的天国乐园。雅卢的方位与去处通常是位在东方，那里是太阳升起的地方，并且被描述为一处漫无边的芦苇平原";
+    aarey="艾瑞森林";
+}
+/*
+for(k,v in tab){
+    winform.edit.print(k);
+    winform.edit.print(v);
+    winform.edit.print();
+}
+*/
+//表默认是无序的，可以改用table.eachName()排序后再输出：
+/*
+for k,v in table.eachName(tab){
+	winform.edit.print(k);
+    winform.edit.print(v);
+    winform.edit.print();
+}
+*/
+
+//将表转换为json
+import web.json;
+var json = web.json.stringify(tab, true);
+winform.edit.print(json);
+
+winform.show();
+win.loopMessage();
