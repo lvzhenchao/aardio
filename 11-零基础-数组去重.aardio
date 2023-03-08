@@ -1,0 +1,45 @@
+import console; 
+
+//取出使用字母数目最少的单词：将大问题分解成小问题
+//1、将字符串拆分成字符数组。
+//2、对数组去重。
+
+//定义字符串
+var word = "aardioer";
+
+//拆分为数组
+var letters = string.split(word);
+
+//数组去重
+var unique_letters = table.unique(letters);
+
+//复制数组到剪贴板
+import win.clip;
+win.clip.write(table.tostring(unique_letters));
+
+//显示数组
+/*
+console.dump(letters);
+console.dump(unique_letters);
+console.pause(true);
+*/
+
+//升级
+//定义局部函数
+var getLetters = function(word){
+    //拆分为数组
+    var letters = string.split(word);
+    //返回去重后的数组
+    return table.unique(letters);
+}
+
+var words = {"Android";"Arduino";"aardio"}
+//遍历表的成员
+for(i,word in words){ 
+    //替换为字符数组
+    words[ i ] = getLetters(word);
+    //记录原始单词
+    words[ i ].word = word;
+}
+console.dump(words);
+console.pause(true);
