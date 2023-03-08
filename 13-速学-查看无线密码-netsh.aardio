@@ -1,0 +1,26 @@
+import win.ui;
+/*DSG{{*/
+var winform = win.form(text="aardio form";right=759;bottom=469)
+winform.add(
+edit={cls="edit";text="Edit";left=35;top=29;right=593;bottom=355;edge=1;multiline=1;z=1}
+)
+/*}}*/
+
+import process.popen;
+var prcs = process.popen("netsh wlan show profiles"); 
+
+for wifi in prcs.lines("<All User Profile>|<所有用户配置文件>\s*\:\s*(.*)"){  
+	//创建命令行进程（显示密码）
+	var prcsKey = process.popen(
+		"netsh wlan show profile name="+wifi+" key=clear"
+	);
+	
+	//遍历所有行，获取密码字段
+	for password in prcsKey.lines(
+		"<Key Content>|<关键内容>\s*\:\s*(.*)"){
+		winform.edit.print( wifi, password );
+	}
+}
+
+winform.show();
+win.loopMessage();

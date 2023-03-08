@@ -1,0 +1,34 @@
+//创建桌面歌词窗口
+import win.util.lyric;
+var lyric = win.util.lyric();
+lyric.show();
+
+//打开播放设备
+import sys.midiOut;
+var midiOut = sys.midiOut(); 
+
+//定义显示歌词的函数
+midiOut.log = function(str){
+    lyric.text = str; 
+}
+
+//选择八音盒，参数为乐器编号
+//midiOut.changeInstrument(0);
+
+midiOut.play( "
+		changeInstrument(0),
+		两只老虎,
+        1__,2__,3__,1__, 
+        两只老虎,
+        1__,2__,3__,1__, 
+        跑得快,
+        3__,4__,5__,__,
+        跑得快,
+        3__,4__,5__,__,
+        一只没有耳朵,
+        5_,6_,5_,4_,3__,1__,
+        一只没有尾巴,
+        5_,6_,5_,4_,3__,1__, 
+        真奇怪,
+        2__,'5__,1__,__
+" );
