@@ -1,0 +1,19 @@
+import console; 
+import string.words;
+
+//查找 "aar" 开头的词
+/*
+for(k,v in string.words){
+    if( string.startWith(k,"aar",true) ){
+        console.log(k,v); 
+    }
+}
+*/
+//查出所有 r 开头的名词，并且释义与『人』有关
+for(k,v in string.words){
+    if( string.find(k,"^r") && string.find(v,"!\wn\..*人.*") ){
+        console.log(k,v); 
+    }
+}
+
+console.pause(true);
