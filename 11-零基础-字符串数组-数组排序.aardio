@@ -1,0 +1,31 @@
+import win.ui;
+/*DSG{{*/
+var winform = win.form(text="aardio form";right=759;bottom=469)
+winform.add(
+edit={cls="edit";text="";left=31;top=32;right=731;bottom=408;edge=1;multiline=1;z=1}
+)
+/*}}*/
+
+//创建一个数组  使用 # 操作取数组或字符串的值，也可以取 null 值的长度（ 返回 0 ）
+var words = {"Android"; "Arduino"; "aardio"};
+
+//1、排序; owner 参数指的是当前项；next 指的是下一个项
+//owner是函数隐藏传递的参数，类似js的this;在函数里面就是函数的所有者table
+/*
+table.sort(words, function(next){
+	return #owner < #next
+})
+*/
+//还可以将匿名函数写为 lambda 函数
+table.sort(words,lambda(n)#owner<#n);
+
+
+for(i=1;#words;1){
+	var word = words[i];
+	winform.edit.print(word, "长度："+#word)
+}
+
+
+
+winform.show();
+win.loopMessage();
