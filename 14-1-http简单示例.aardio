@@ -1,0 +1,30 @@
+
+import console;
+import web.rest.jsonLiteClient;
+
+//创建 HTTP( REST ) 客户端。
+var http = web.rest.jsonLiteClient();
+
+//声明 HTTP 接口对象
+var api = http.api("http://httpbin.org/anything/")
+
+/*
+调用 HTTP 接口函数（已经自动转换为了本地函数）。
+返回 JSON 自动转换为了 aardio 对象。
+*/ 
+//1、会自动生成："http://httpbin.org/anything" + "/object" + "/method",
+//2、将函数参数按网页表单编码规则转换为字符串提交：下面
+/*
+inet.url.stringifyParameters({
+      name = "用户名";
+      data = "其他数据";
+})
+*/
+var result = api.object.method({
+    name = "用户名";
+    data = "其他数据";
+});
+
+//输出服务端返回对象 —— 这个接口返回的是 HTTP 请求信息 
+console.dumpJson(result);
+console.pause();

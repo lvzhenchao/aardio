@@ -1,0 +1,17 @@
+import console;
+import web.rest.jsonLiteClient;
+
+//网址模板参数: HTTP 接口网址中可选使用大括号 { } 包含模板参数名;"http://httpbin.org/anything/{org}/{name}/repos"
+var http = web.rest.jsonLiteClient();
+
+//声明 HTTP 接口对象
+var api = http.api("http://httpbin.org/anything/{org}/{name}/repos")//形参
+
+//调用 HTTP 接口函数
+var result = api.aardio.jacen({//实参：依次从前向后替换
+    name = "ImTip";
+    description = "通用输入法状态提示";
+});
+
+console.dumpJson(result);
+console.pause();

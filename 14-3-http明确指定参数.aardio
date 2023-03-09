@@ -1,0 +1,22 @@
+import console; 
+
+import web.rest.jsonLiteClient;
+var http = web.rest.jsonLiteClient();
+
+//可以在调用时明确指定模板实参的名字
+
+//声明 HTTP 接口对象
+var api = http.api("http://httpbin.org/anything/{org}/{name}/repos")
+//var api = http.api("http://httpbin.org/anything/{...}") {...} 可以省略不写，省略仍然支持不定个数模板参数，多个模板实参会自动用 "/" 分隔
+
+//URL 模板实参，使用名值对指定了参数的名字
+var urlParam = { org = "aardio", name = "jacen" } 
+
+//调用 HTTP 接口函数
+var result = api[urlParam]({
+    name = "ImTip";
+    description = "通用输入法状态提示";
+});
+
+console.dumpJson(result);
+console.pause(true);
