@@ -1,0 +1,43 @@
+import console; 
+import web.rest.jsonLiteClient;
+
+var http = web.rest.jsonLiteClient();
+
+//1、可在参数 @2 指定默认 HTTP 方法，不指定默认为 "POST"
+var api = http.api("http://httpbin.org/anything/","POST") 
+
+//发送 GET 请求
+//var ret = api.name.get( a = 1,b = 2);
+
+//发送 POST 请求
+//var ret = api.name.post( a = 1,b = 2);
+
+//发送 PATCH 请求
+//var ret = api.name.patch( a = 1,b = 2);
+
+//发送 PUT 请求
+//var ret = api.name.put( a = 1,b = 2);
+
+//发送 DELETE 请求
+//var ret = api.name.delete( a = 1,b = 2);
+
+//2、http 方法不仅仅可以作为函数使用，也可以作为转换对象 —— 用于转换后续的请求方法
+//var ret = api.get.method( a = 1,b = 2);
+//var ret = api.post.method( a = 1,b = 2);
+
+
+//3、获取错误信息，调用 HTTP 接口时，成功返回解析后的响应数据，失败则返回 3 个值：null, 错误信息, 错误代码（可选）
+//发送 GET 请求
+var ret,err = api.get( a = 1,b = 2);
+
+if(!ret){
+  //出错了输出错误信息
+  console.log("出错了",err)
+  //获取原始服务器响应数据
+  //http.lastResponse()
+}
+else {
+  console.dumpJson(ret); 
+} 
+
+console.pause(true);
