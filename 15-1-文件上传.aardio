@@ -33,7 +33,7 @@ var api = http.api("http://httpbin.org/anything");
 
 //上传文件
 //var result = api.sendFile("/test.txt");
-var result = api.sendFile( "@/test.txt"
+var result = api.sendFile( "/test.mp4"
     ,function(sendData,sendSize,contentLength,remainSize){
         /*
         sendData 为本次上传数据；
@@ -41,13 +41,12 @@ var result = api.sendFile( "@/test.txt"
         contentLength 为要上传的总字节数；
         remainSize 为剩余字节数；
         */
-        console.log(sendData);
-        console.log(sendSize);
-        console.log(contentLength);
-        console.log(remainSize);
+        //console.log(sendData);
+        console.log(,sendSize,contentLength,remainSize);
+       
     }
 );
 
-console.dumpJson(result);
+//console.dumpJson(result);
 
 console.pause(true);

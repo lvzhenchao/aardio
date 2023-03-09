@@ -1,0 +1,25 @@
+
+import console;
+import web.rest.jsonLiteClient;
+var http = web.rest.client();
+
+var aardio = http.api("https://www.aardio.com");
+
+/*
+下载文件:
+如果创建文件失败 receiveFile 函数会返回 null 及错误信息，否则返回对象自身。
+*/
+//var ok = aardio.receiveFile("/.test.html").get();
+
+//指定下载进度回调函数：
+aardio.receiveFile("/.test.html",function(recvData,recvSize,contentLength){
+    /*
+    recvData 为当前下载数据。
+    recvSize 为当前下载数据字节数。
+    contentLength 为需要下载的总字节数。
+    */
+    console.log(/*recvData*/,recvSize,contentLength)
+}).get();
+
+console.dumpJson(ok);
+console.pause(true);
