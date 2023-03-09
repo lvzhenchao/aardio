@@ -1,0 +1,57 @@
+
+//导入 inet.http
+import inet.http;
+
+//创建 HTTP 客户端对象
+//var http = inet.http(); 
+
+//发送 GET 请求
+//var data_get = http.get("http://eu.httpbin.org/get?username=user&password=pwd");
+
+
+//发送 POST 请求
+/*
+var data_post = http.post("http://eu.httpbin.org/post",{
+  username = "user"; password = "pwd";
+});
+*/
+
+//2、分布请求
+//首先创建 HTTP 客户端对象
+var http = inet.http();
+
+//创建 HTTP 请求，参数 @2指定请求方法，更多参数请查看函数说明
+http.beginRequest("http://www.aardio.com","GET");
+
+//发送请求
+http.send();
+
+//读取 HTTP 响应头（要在发送请求头后才能读取 ）。
+var headers = http.readHeader();
+
+//3、封装成函数
+namespace httpUtil{
+    
+    getHeader = function(url, ...){
+    	var http = ..inet.http();
+    	
+    	http.beginRequest(url, ...);
+    	
+    	http.send();
+    	
+    	var headers = http.readHeader();
+    	http.close();
+    	
+    	return headers; 
+    }
+    
+    
+	
+}
+//import httpUtil;
+var ret = httpUtil.getHeader("http://www.aardio.com");
+
+
+
+
+
