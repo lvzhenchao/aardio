@@ -1,0 +1,53 @@
+import console; 
+
+
+import web.rest.client;
+var http = web.rest.client();
+//var api = http.api("https://fontello.com");
+
+//使用文件表单上传文件，可以指定多个字段
+/*
+var result = api.sendMultipartForm({
+    file = "@/test.php"; //上传文件路径前面必须加一个字符 @ ，其他字段不用加
+});
+*/
+
+//如果需要处理上传进度，可以这样写：
+/**
+var result = api.sendMultipartForm(
+	{
+        file = "@/test.json";
+    },function(sendData,sendSize,contentLength,remainSize){
+        /*
+        sendData 为本次上传数据；
+        sendSize 为本次上传字节数；
+        contentLength 为要上传的总字节数；
+        remainSize 为剩余字节数；
+        */
+    }
+);
+**/
+
+//直接上传文件
+var api = http.api("http://httpbin.org/anything");
+
+//上传文件
+//var result = api.sendFile("/test.txt");
+var result = api.sendFile( "@/test.txt"
+    ,function(sendData,sendSize,contentLength,remainSize){
+        /*
+        sendData 为本次上传数据；
+        sendSize 为本次上传字节数；
+        contentLength 为要上传的总字节数；
+        remainSize 为剩余字节数；
+        */
+        console.log(sendData);
+        console.log(sendSize);
+        console.log(contentLength);
+        console.log(remainSize);
+    }
+);
+
+console.dumpJson(result);
+
+console.pause(true);
