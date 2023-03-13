@@ -1,0 +1,31 @@
+import console; 
+
+//基本数据类型-buffer-原生字节数组；使用raw.buffer()函数分配的可读写、固定长度的内存，可存取各种二进制数据；
+/*
+var buffer = raw.buffer( 分配内存的字节长度 )
+var buffer = raw.buffer( 分配内存的字节长度,初始值 )
+var buffer = raw.buffer( 初始值 )
+*/
+
+var buffer = raw.buffer(20);
+
+//复制数据到buffer
+raw.copy(buffer, "123456qwer");
+
+//修改字节数组
+buffer[1] = 65;
+buffer[2] = 66;
+
+//获取字节值
+console.log(buffer[1]);
+
+//显示所有字节值
+console.hex(buffer);
+
+//可用于字符串函数操作
+var s = string.left(buffer,3);
+
+//可用于其他函数的字符串参数
+console.log(buffer)
+
+console.pause(true);
